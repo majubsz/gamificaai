@@ -1,0 +1,131 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+:root {
+    --roxo-gamifica: #47208b;
+    --laranja-gamifica: #f06638;
+
+}
+
+
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner {
+    height: 100vh;
+
+    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1)), url(img/bg-room.png);
+    background-repeat: no-repeat;
+    background-position: 165% 40%;
+
+}
+
+.conteudo-banner {
+    height: calc(100vh - 280px);
+
+    display: flex;
+    align-items: center;
+}
+
+.conteudo-banner p {
+    color: rgb(9, 1, 1);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+
+}
+
+#sobre {
+    height: 800px;
+    padding: 100px 25%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: center;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+
+}
+
+#sobre p {
+    font-family: "Montserrat";
+    font-size: 17px;
+
+     text-align: left;
+
+     line-height: 1.5;
+}
+
+#cases{
+    text-align: center;
+
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+}
+
+.container-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    height: 400px;
+    width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--roxo-gamifica);
+
+    border-radius: 4px;
+}
+
+.card img {
+    height: 55%;
+    width: 100%;
+
+    border-radius: 4px 4px 0px 0px;
+}
+
+.card p {
+    color: white;
+
+    font-family: "Montserrat";
+    font-size: 16px;
+
+    padding: 7%;
+}
+
+.card button {
+    width: 90%;
+    height: 40px;
+
+    background-color: var(--laranja-gamifica);
+
+    border: none;
+    border-radius: 4px;
+
+    font-family: "Montserrat";
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 500ms ease;
+}
+
+.card button:hover {
+    background-color: #ad4929;
+}
