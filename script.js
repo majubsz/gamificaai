@@ -183,5 +183,14 @@ function solicitarOrcamento() {
 
         //Msotrar um alert de sucesso
         alert("Solicitacao enviada com sucesso!!!")
-    })  
+    }) 
+    
+     // CASO ERRO
+     .catch(erro => {
+        console.log(erro);
+        // Mostrar alert com msg de erro
+        alert("Erro na requisição 😢")
+    })
+          
+    event.preventDefault()
 }
