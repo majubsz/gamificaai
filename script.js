@@ -113,9 +113,7 @@ function selecionarSlide(indiceSlide) {
 
 
 // Carregamento dinâmico dos cases
-let listaCases = [
-    
-]
+let listaCases = [  ]
 
 function renderizarCases() {
     // Encontrar o elemento para inserir os cards
@@ -139,54 +137,51 @@ function renderizarCases() {
 }
 
 function carregarCases() {
+    // Método HTTP GET - Read/Leitura - Serve para mostrar um item ou uma lista de itens
     fetch("http://localhost:3000/cases")
-
-    .then ( (resposta) => resposta.json() )
-    .then ( (dadosTratados) => {
-        console.log (dadosTratados)
+    // Deserialization - Desserialização
+    .then( (resposta) => resposta.json() )
+    .then( (dadosTratados) => {
+        console.log(dadosTratados)
         listaCases = dadosTratados
         renderizarCases()
     })
 }
 
-function solicitarOrcamento() {
-    //pegar os valores dos inputs
+function solicitarOrcamento(event) {
+    // Pegar os valores dos inputs
     let valorNome = document.getElementById("campo-nome").value
     let valorEmail = document.getElementById("campo-email").value
     let valorDescricao = document.getElementById("campo-texto").value
 
-    //organizar os valores em um objeto 
+    // Organizar os valores em um objeto
     let dadosForm = {
         nome: valorNome,
         email: valorEmail,
         descricao: valorDescricao
     }
 
-    console.log(dadosForm);
-
-    //Enviar a requisicao para a API 
-    //Metodo HTTP POST -create/criar -> cadastrar um novo registro (solicitacao)
-    fetch("http:/localhost:3000/solcitacoes", {
+    // Enviar a requisição para a API
+    // Método HTTP POST - Create/Criar -> Cadastrar um novo registro (solicitacao)
+    fetch("http://localhost:3000/solicitacoes", {
         method: "POST",
         headers: {
-            "Content-Type" : "application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(dadosForm)
     })
+    // CASO SUCESSO
+    .then(resposta => {   
+        console.log(resposta);     
+        
+        // Limpar os inputs
+        document.querySelector("#contato form").reset()
 
-    //CASO SUCESSO 
-    .then (resposta => {
-        console.log (resposta);
-
-        //Limpar inputs 
-        document.querySelector ("#contato form").reset ()
-
-        //Msotrar um alert de sucesso
-        alert("Solicitacao enviada com sucesso!!!")
-    }) 
-    
-     // CASO ERRO
-     .catch(erro => {
+        // Mostrar um alert de sucesso
+        alert("Solicitação enviada com sucesso!!! 👍")
+    })
+    // CASO ERRO
+    .catch(erro => {
         console.log(erro);
         // Mostrar alert com msg de erro
         alert("Erro na requisição 😢")
